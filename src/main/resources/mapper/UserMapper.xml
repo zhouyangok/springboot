@@ -7,6 +7,33 @@
     -->
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="passwrod" jdbcType="VARCHAR" property="passwrod" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
   </resultMap>
+
+  <select id="queryUserList" resultType="com.crazyang.domain.User">
+    SELECT * from user where 1=1
+    <if test="id != null and id.length!= 0">
+      and id like CONCAT('%',#{id},'%')
+    </if>
+    order by id desc
+  </select>
+  <insert id="insert" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+    insert into user (name, password,address,phone) values(#{name},#{password}, #{address},#{phone})
+  </insert>
+
+  <update id="update" parameterType="User">
+    UPDATE user
+    SET    name = #name#,
+    password=#password#,
+    address=#address#,
+    phone=#phone#
+    WHERE  id = #id#
+  </update>
+
+  <delete id="deleteById" parameterType="int">
+    DELETE FROM USER
+    WHERE  id = #id#
+  </delete>
 </mapper>
