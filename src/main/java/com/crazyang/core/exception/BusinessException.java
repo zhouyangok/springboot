@@ -1,4 +1,4 @@
-package com.crazyang.exception;
+package com.crazyang.core.exception;
 
 import java.io.Serializable;
 

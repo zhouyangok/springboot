@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package com.crazyang.util;
+package com.crazyang.core.util;
 
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.MySqlMapper;

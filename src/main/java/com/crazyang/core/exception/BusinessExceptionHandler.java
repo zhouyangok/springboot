@@ -1,6 +1,6 @@
-package com.crazyang.exception;
+package com.crazyang.core.exception;
 
-import com.crazyang.util.AjaxObject;
+import com.crazyang.core.util.AjaxObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ui.Model;

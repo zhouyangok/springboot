@@ -1,4 +1,4 @@
-package com.crazyang.util;
+package com.crazyang.core.util;
 
 import org.apache.commons.httpclient.HttpStatus;
 

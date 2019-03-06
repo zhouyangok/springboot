@@ -1,7 +1,7 @@
 package com.crazyang.service;
 
-import com.crazyang.domain.LearnResource;
-import com.crazyang.util.Page;
+import com.crazyang.entity.LearnResource;
+import com.crazyang.core.util.Page;
 import com.crazyang.model.LeanQueryLeanListReq;
 
 import java.util.List;

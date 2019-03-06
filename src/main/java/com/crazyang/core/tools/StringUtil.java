@@ -1,4 +1,4 @@
-package com.crazyang.tools;
+package com.crazyang.core.tools;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

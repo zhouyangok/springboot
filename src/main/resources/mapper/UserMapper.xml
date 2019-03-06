@@ -1,39 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.crazyang.dao.UserMapper">
-  <resultMap id="BaseResultMap" type="com.crazyang.domain.User">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="address" jdbcType="VARCHAR" property="address" />
-    <result column="phone" jdbcType="VARCHAR" property="phone" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="com.crazyang.entity.User">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+    </resultMap>
 
-  <select id="queryUserList" resultType="com.crazyang.domain.User">
-    SELECT * from user where 1=1
-    <if test="id != null and id.length!= 0">
-      and id like CONCAT('%',#{id},'%')
-    </if>
-    order by id desc
-  </select>
-  <insert id="insert" parameterType="User" useGeneratedKeys="true" keyProperty="id">
-    insert into user (name, password,address,phone) values(#{name},#{password}, #{address},#{phone})
+    <select id="queryUserList" resultType="com.crazyang.entity.User">
+        SELECT * from user where 1=1
+        <if test="id != null and id.length!= 0">
+            and id like CONCAT('%',#{id},'%')
+        </if>
+        order by id desc
+    </select>
+
+
+    <insert id="insert" parameterType="com.crazyang.entity.User" useGeneratedKeys="true" keyProperty="id">
+    insert into user
+    (name, password,address,phone)
+    values
+    (#{name},#{password}, #{address},#{phone})
   </insert>
 
-  <update id="update" parameterType="User">
-    UPDATE user
-    SET    name = #name#,
-    password=#password#,
-    address=#address#,
-    phone=#phone#
-    WHERE  id = #id#
-  </update>
+    <!-- 批量插入生成的兑换码 -->
+    <insert id ="insertBatch" parameterType="java.util.List" >
+        insert into user
+        (name, password,address,phone)
+        values
+        <foreach collection ="list" item="userCode" index= "index" separator =",">
+            (
+            #{userCode.name},
+            #{userCode.password},
+            #{userCode.address},
+            #{userCode.phone}
+            )
+        </foreach >
+    </insert >
 
-  <delete id="deleteById" parameterType="int">
-    DELETE FROM USER
-    WHERE  id = #id#
-  </delete>
+    <update id="update" parameterType="com.crazyang.entity.User">
+        UPDATE user
+        <set>
+            <if test="name!=null">
+                name = #{name},
+            </if>
+            <if test="password!=null">
+                password=#{password},
+            </if>
+            <if test="address!=null">
+                address=#{address},
+            </if>
+            <if test="phone!=null">
+                phone=#{phone}
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!--<delete id="deleteById" parameterType="int">
+      DELETE FROM USER
+      WHERE  id = #{id}
+    </delete>-->
 </mapper>

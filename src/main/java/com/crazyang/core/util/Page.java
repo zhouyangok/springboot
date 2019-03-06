@@ -1,4 +1,4 @@
-package com.crazyang.util;
+package com.crazyang.core.util;
 
 import java.io.Serializable;
 import java.util.Collections;

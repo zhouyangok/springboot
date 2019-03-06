@@ -1,6 +1,6 @@
-package com.crazyang.interceptor;
+package com.crazyang.core.interceptor;
 
-import com.crazyang.domain.User;
+import com.crazyang.entity.User;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;

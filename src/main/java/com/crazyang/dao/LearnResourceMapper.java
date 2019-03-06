@@ -1,7 +1,7 @@
 package com.crazyang.dao;
 
-import com.crazyang.domain.LearnResource;
-import com.crazyang.util.MyMapper;
+import com.crazyang.entity.LearnResource;
+import com.crazyang.core.util.MyMapper;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

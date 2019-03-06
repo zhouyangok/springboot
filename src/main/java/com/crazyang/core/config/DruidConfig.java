@@ -1,4 +1,4 @@
-package com.crazyang.config;
+package com.crazyang.core.config;
 
 import com.alibaba.druid.filter.Filter;
 import com.alibaba.druid.filter.stat.StatFilter;

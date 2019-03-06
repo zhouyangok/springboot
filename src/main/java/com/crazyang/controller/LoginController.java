@@ -1,6 +1,6 @@
 package com.crazyang.controller;
 
-import com.crazyang.domain.User;
+import com.crazyang.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -37,7 +37,7 @@ public class LoginController extends  AbstractController{
         if(!userName.equals("") && password!=""){
             User user =new User();
             user.setName(userName);
-            user.setPasswrod(password);
+            user.setPassword(password);
             request.getSession().setAttribute("user",user);
             map.put("result","1");
         }else{

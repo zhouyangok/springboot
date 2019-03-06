@@ -1,6 +1,8 @@
 package com.crazyang.service;
 
-import com.crazyang.domain.User;
+import com.crazyang.core.util.Page;
+import com.crazyang.entity.User;
+import com.crazyang.model.LeanQueryLeanListReq;
 
 import java.util.List;
 import java.util.Map;
@@ -11,7 +13,17 @@ import java.util.Map;
  */
 public interface UserService extends IService<User> {
 
-    List<User> queryUserList(Map<String,Object> map);
+    List<User> queryUserList(Page<User> page);
+
+    User getOne(int id);
+
+    User findByName(String name);
 
     int insert(User user);
+
+    int insertBatch(List<User> userList);
+
+    int update(User user);
+
+    int deleteById(int id);
 }

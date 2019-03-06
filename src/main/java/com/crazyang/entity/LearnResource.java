@@ -1,4 +1,4 @@
-package com.crazyang.domain;
+package com.crazyang.entity;
 
 import javax.persistence.*;
 

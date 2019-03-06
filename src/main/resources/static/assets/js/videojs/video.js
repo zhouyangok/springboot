@@ -18881,10 +18881,10 @@ var getFileExtension = function getFileExtension(path) {
 
 exports.getFileExtension = getFileExtension;
 /**
- * Returns whether the url passed is a cross domain request or not.
+ * Returns whether the url passed is a cross entity request or not.
  *
  * @param {String} url The url to check
- * @return {Boolean}   Whether it is a cross domain request or not
+ * @return {Boolean}   Whether it is a cross entity request or not
  * @method isCrossOrigin
  */
 var isCrossOrigin = function isCrossOrigin(url) {
@@ -18894,7 +18894,7 @@ var isCrossOrigin = function isCrossOrigin(url) {
   // IE8 protocol relative urls will return ':' for protocol
   var srcProtocol = urlInfo.protocol === ':' ? winLoc.protocol : urlInfo.protocol;
 
-  // Check if url is for another domain/origin
+  // Check if url is for another entity/origin
   // IE8 doesn't know location.origin, so we won't rely on it here
   var crossOrigin = srcProtocol + urlInfo.host !== winLoc.protocol + winLoc.host;
 
@@ -19434,10 +19434,10 @@ videojs.formatTime = _utilsFormatTimeJs2['default'];
 videojs.parseUrl = Url.parseUrl;
 
 /**
- * Returns whether the url passed is a cross domain request or not.
+ * Returns whether the url passed is a cross entity request or not.
  *
  * @param {String} url The url to check
- * @return {Boolean}   Whether it is a cross domain request or not
+ * @return {Boolean}   Whether it is a cross entity request or not
  * @method isCrossOrigin
  */
 videojs.isCrossOrigin = Url.isCrossOrigin;

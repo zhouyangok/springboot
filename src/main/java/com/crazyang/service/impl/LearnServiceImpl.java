@@ -1,9 +1,9 @@
 package com.crazyang.service.impl;
 
 import com.crazyang.dao.LearnResourceMapper;
-import com.crazyang.domain.LearnResource;
+import com.crazyang.entity.LearnResource;
 import com.crazyang.service.LearnService;
-import com.crazyang.util.Page;
+import com.crazyang.core.util.Page;
 import com.crazyang.model.LeanQueryLeanListReq;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;

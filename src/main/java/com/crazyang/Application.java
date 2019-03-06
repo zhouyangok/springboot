@@ -1,6 +1,6 @@
 package com.crazyang;
 
-import com.crazyang.util.MyMapper;
+import com.crazyang.core.util.MyMapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

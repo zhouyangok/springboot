@@ -1,4 +1,4 @@
-package com.crazyang.domain;
+package com.crazyang.entity;
 
 import javax.persistence.*;
 
@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     private String name;
 
@@ -14,7 +14,7 @@ public class User {
 
     private String address;
 
-    private String passwrod;
+    private String password;
 
 
     public String getPhone() {
@@ -36,14 +36,14 @@ public class User {
     /**
      * @return id
      */
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
     /**
      * @param id
      */
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -64,14 +64,14 @@ public class User {
     /**
      * @return passwrod
      */
-    public String getPasswrod() {
-        return passwrod;
+    public String getPassword() {
+        return password;
     }
 
     /**
-     * @param passwrod
+     * @param password
      */
-    public void setPasswrod(String passwrod) {
-        this.passwrod = passwrod == null ? null : passwrod.trim();
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
     }
 }
