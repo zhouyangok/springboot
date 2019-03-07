@@ -9,7 +9,7 @@ import java.util.Map;
 
 @Component
 public interface LearnResourceMapper extends MyMapper<LearnResource> {
-    List<LearnResource> queryLearnResouceList(Map<String, Object> map);
+    List<LearnResource> queryLearnResourceList(Map<String, Object> map);
 
     void add(LearnResource resource);
 

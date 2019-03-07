@@ -1,12 +1,22 @@
 package com.crazyang.entity;
 
 import javax.persistence.*;
+import java.util.Date;
+
+/**
+ * @ClassName Permission
+ * @Description: 用户信息实体类
+ * @Author zhouyang
+ * @Date 2019/3/4 下午3:19.
+ */
 
 @Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    private String userId;
 
     private String name;
 
@@ -16,6 +26,63 @@ public class User {
 
     private String password;
 
+    private String email;
+
+    private int sex;
+
+    private int status;
+
+    private Date createTime;
+
+    private Date updateTime;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getSex() {
+        return sex;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
 
     public String getPhone() {
         return phone;

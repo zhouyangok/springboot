@@ -10,7 +10,7 @@
         <result column="title" jdbcType="VARCHAR" property="title"/>
         <result column="url" jdbcType="VARCHAR" property="url"/>
     </resultMap>
-    <select id="queryLearnResouceList" resultType="com.crazyang.entity.LearnResource">
+    <select id="queryLearnResourceList" resultType="com.crazyang.entity.LearnResource">
         SELECT * from learn_resource where 1=1
         <if test="author != null and author!= ''">
             and author like CONCAT('%',#{author},'%')

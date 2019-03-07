@@ -7,6 +7,11 @@
         <result column="address" jdbcType="VARCHAR" property="address"/>
         <result column="phone" jdbcType="VARCHAR" property="phone"/>
         <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="sex" jdbcType="INTEGER" property="sex"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="create_time" jdbcType="DATE" property="createTime"/>
+        <result column="update_time" jdbcType="DATE" property="updateTime"/>
     </resultMap>
 
     <select id="queryUserList" resultType="com.crazyang.entity.User">
@@ -20,25 +25,29 @@
 
     <insert id="insert" parameterType="com.crazyang.entity.User" useGeneratedKeys="true" keyProperty="id">
     insert into user
-    (name, password,address,phone)
+    (user_id,name, password,address,phone,email,sex,status,create_time)
     values
-    (#{name},#{password}, #{address},#{phone})
+    (#{userId},#{name},#{password}, #{address},#{phone},#{email},#{sex},#{status},#{createTime})
   </insert>
 
     <!-- 批量插入生成的兑换码 -->
-    <insert id ="insertBatch" parameterType="java.util.List" >
+    <insert id="insertBatch" parameterType="java.util.List">
         insert into user
-        (name, password,address,phone)
+        (user_id,name, password,address,phone,email,sex,status)
         values
-        <foreach collection ="list" item="userCode" index= "index" separator =",">
+        <foreach collection="list" item="userCode" index="index" separator=",">
             (
+            #{userCode.userId}
             #{userCode.name},
             #{userCode.password},
             #{userCode.address},
             #{userCode.phone}
+            #{userCode.email}
+            #{userCode.sex}
+            #{userCode.status}
             )
-        </foreach >
-    </insert >
+        </foreach>
+    </insert>
 
     <update id="update" parameterType="com.crazyang.entity.User">
         UPDATE user
@@ -53,7 +62,16 @@
                 address=#{address},
             </if>
             <if test="phone!=null">
-                phone=#{phone}
+                phone=#{phone},
+            </if>
+            <if test="email!=null">
+                email=#{email},
+            </if>
+            <if test="sex!=null">
+                sex=#{sex},
+            </if>
+            <if test="status!=null">
+                staus=#{staus}
             </if>
         </set>
         WHERE id = #{id}

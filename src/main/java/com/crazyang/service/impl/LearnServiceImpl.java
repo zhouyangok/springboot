@@ -42,8 +42,8 @@ public class LearnServiceImpl extends BaseService<LearnResource> implements Lear
     }
 
     @Override
-    public List<LearnResource> queryLearnResouceList(Page<LeanQueryLeanListReq> page) {
+    public List<LearnResource> queryLearnResourceList(Page<LeanQueryLeanListReq> page) {
         PageHelper.startPage(page.getPage(), page.getRows());
-        return learnResourceMapper.queryLearnResouceList(page.getCondition());
+        return learnResourceMapper.queryLearnResourceList(page.getCondition());
     }
 }

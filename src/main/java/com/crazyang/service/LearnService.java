@@ -11,7 +11,7 @@ import java.util.List;
  */
 
 public interface LearnService  extends IService<LearnResource>{
-     List<LearnResource> queryLearnResouceList(Page<LeanQueryLeanListReq> page);
+     List<LearnResource> queryLearnResourceList(Page<LeanQueryLeanListReq> page);
 
      void deleteBatch(Long[] ids);
 

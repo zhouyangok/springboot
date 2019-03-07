@@ -17,8 +17,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by zhouyang
- * Date 2019/3/5.
+ * @ClassName UserStatus
+ * @Description: 用户测试类
+ * @Author zhouyang
+ * @Date 2019/3/5 下午5:36.
  */
 
 @RunWith(SpringRunner.class)
@@ -54,7 +56,11 @@ public class UserServiceImplTest {
     public void findByName() {
         String name = "admin1";
         User user = userService.findByName(name);
-        System.out.println(user.getName());
+        if (user != null) {
+            System.out.println(user.getName());
+        } else {
+            System.out.println("没有找到用户");
+        }
     }
 
     /**
@@ -66,10 +72,17 @@ public class UserServiceImplTest {
     public void insert() throws Exception {
 
         User user = new User();
-        user.setName("test01");
+        user.setName("helloMe");
         user.setPassword("test01");
         user.setAddress("test02");
-        int result = userService.insert(user);
+        int result = 0;
+        try {
+            result = userService.insert(user);
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
+
         System.out.println(result);
     }
 
@@ -119,6 +132,4 @@ public class UserServiceImplTest {
         int result = userService.deleteById(3);
         System.out.println(result);
     }
-
-
 }

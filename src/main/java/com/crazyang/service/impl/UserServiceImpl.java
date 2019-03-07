@@ -1,5 +1,8 @@
 package com.crazyang.service.impl;
 
+import com.crazyang.core.constant.CommonConstant;
+import com.crazyang.core.exception.BusinessException;
+import com.crazyang.core.tools.StringUtil;
 import com.crazyang.core.util.Page;
 import com.crazyang.dao.UserMapper;
 import com.crazyang.entity.User;
@@ -10,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
+import java.util.Random;
 
 /**
  * Created by zhouyang
@@ -40,13 +43,18 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
 
     @Override
     public int insert(User user) {
+        User userVo = userMapper.findByName(user.getName());
+        if (userVo != null) {
+            throw new BusinessException("用户已存在");
+        }
+        user.setUserId(String.valueOf(new Random().nextLong()));
         user.setPassword(MD5Utils.getResult(user.getPassword() + user.getName()));
         return userMapper.insert(user);
     }
 
     @Override
     public int insertBatch(List<User> userList) {
-        for (User user:userList) {
+        for (User user : userList) {
             user.setPassword(MD5Utils.getResult(user.getPassword() + user.getName()));
         }
         return userMapper.insertBatch(userList);
@@ -58,6 +66,7 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
         user.setPassword(MD5Utils.getResult(user.getPassword() + user.getName()));
         return userMapper.update(user);
     }
+
 
     @Override
     public int deleteById(int id) {

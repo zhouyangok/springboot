@@ -40,7 +40,7 @@ public class LearnController  extends AbstractController{
     @RequestMapping(value = "/queryLeanList",method = RequestMethod.POST)
     @ResponseBody
     public AjaxObject queryLearnList(Page<LeanQueryLeanListReq> page){
-        List<LearnResource> learnList=learnService.queryLearnResouceList(page);
+        List<LearnResource> learnList=learnService.queryLearnResourceList(page);
         PageInfo<LearnResource> pageInfo =new PageInfo<LearnResource>(learnList);
         return AjaxObject.ok().put("page", pageInfo);
     }
