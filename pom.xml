@@ -105,12 +105,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
-        <!--shiro权限控制-->
+
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-security</artifactId>-->
+        <!--</dependency>-->
+
+       <!-- &lt;!&ndash;shiro权限控制&ndash;&gt;
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring-boot-starter</artifactId>
             <version>1.4.0</version>
-        </dependency>
+        </dependency>-->
 
         <!--部署外部tomcat容器的时候再开启-->
         <!--<dependency>

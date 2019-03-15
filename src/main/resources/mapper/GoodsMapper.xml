@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crazyang.dao.GoodsMapper">
+    <resultMap id="BaseResultMap" type="com.crazyang.entity.Goods">
+        <id column="goodsId" jdbcType="BIGINT" property="goodsId"/>
+        <result column="goodsSn" jdbcType="VARCHAR" property="goodsSn"/>
+        <result column="productNo" jdbcType="VARCHAR" property="productNo"/>
+        <result column="goodsName" jdbcType="VARCHAR" property="goodsName"/>
+        <result column="goodsImg" jdbcType="VARCHAR" property="goodsImg"/>
+        <result column="marketPrice" jdbcType="DOUBLE" property="marketPrice"/>
+        <result column="shopPrice" jdbcType="DOUBLE" property="shopPrice"/>
+        <result column="warnStock" jdbcType="INTEGER" property="warnStock"/>
+        <result column="goodsStock" jdbcType="INTEGER" property="goodsStock"/>
+        <result column="sale" jdbcType="INTEGER" property="sale"/>
+        <result column="best" jdbcType="INTEGER" property="best"/>
+        <result column="hot" jdbcType="INTEGER" property="hot"/>
+        <result column="dataFlag" jdbcType="INTEGER" property="dataFlag"/>
+        <result column="create_time" jdbcType="DATE" property="createTime"/>
+    </resultMap>
+
+    <select id="queryGoodsList" resultType="com.crazyang.entity.Goods">
+        SELECT * from goods where 1=1
+        <if test="goodsId != null and goodsId.length!= 0">
+            and goodsId like CONCAT('%',#{goodsId},'%')
+        </if>
+        order by goodsId desc
+    </select>
+
+
+    <insert id="insert" parameterType="com.crazyang.entity.Goods" useGeneratedKeys="true" keyProperty="goodsId">
+        insert into goods
+        (goodsSn,productNo, goodsName,goodsImg,marketPrice,shopPrice,warnStock,goodsStock,sale,best,hot,dataFlag,create_time)
+        values
+        (#{goodsSn},#{productNo},#{goodsName}, #{goodsImg},#{marketPrice},#{shopPrice},#{warnStock},#{goodsStock},#{sale},#{best},#{hot},#{dataFlag},#{createTime})
+    </insert>
+
+
+    <update id="update" parameterType="com.crazyang.entity.Goods">
+        UPDATE goods
+        <set>
+            <if test="goodsSn!=null">
+                goodsSn = #{goodsSn},
+            </if>
+            <if test="productNo!=null">
+                productNo=#{productNo},
+            </if>
+            <if test="goodsName!=null">
+                goodsName=#{goodsName},
+            </if>
+            <if test="goodsImg!=null">
+                goodsImg=#{goodsImg},
+            </if>
+            <if test="marketPrice!=null">
+                marketPrice=#{marketPrice},
+            </if>
+            <if test="shopPrice!=null">
+                shopPrice=#{shopPrice},
+            </if>
+            <if test="warnStock!=null">
+                warnStock=#{warnStock},
+            </if>
+            <if test="goodsStock!=null">
+                goodsStock=#{goodsStock},
+            </if>
+            <if test="sale!=null">
+                sale=#{sale},
+            </if>
+            <if test="best!=null">
+                sabestle=#{best},
+            </if>
+            <if test="hot!=null">
+                hot=#{hot},
+            </if>
+            <if test="dataFlag!=null">
+                dataFlag=#{dataFlag},
+            </if>
+        </set>
+        WHERE goodsId = #{goodsId}
+    </update>
+
+</mapper>
