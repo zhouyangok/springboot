@@ -5,13 +5,11 @@ import com.crazyang.core.util.AjaxObject;
 import com.crazyang.core.util.Page;
 import com.crazyang.entity.Goods;
 import com.crazyang.service.GoodsService;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -30,9 +28,9 @@ public class GoodsController {
     private GoodsService goodsService;
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-
+    @ApiOperation(value = "获取所有的商品")
     @RequestMapping("/goodsList")
-    public void queryGoodsList() throws Exception {
+    public AjaxObject queryGoodsList() throws Exception {
         Page<Goods> page = new Page<>();
         long begin = System.currentTimeMillis();
         System.out.println(begin);
@@ -41,11 +39,14 @@ public class GoodsController {
         long end = System.currentTimeMillis();
         System.out.println(end);
         System.out.println(end - begin);
+        return AjaxObject.ok().put("goodsList", goodsList);
     }
 
-    @RequestMapping("/getOne")
-    public Goods getOne(@RequestParam("goodsId") int goodsId) {
-        return goodsService.getOne(goodsId);
+    @ApiOperation(value = "根据id获取山炮信息")
+    @GetMapping("/getOne/{goodsId}")
+    public AjaxObject getOne(@PathVariable("goodsId") int goodsId) {
+        Goods goods = goodsService.getOne(goodsId);
+        return AjaxObject.ok().put("goods", goods);
     }
 
     @RequestMapping("/findByName")
@@ -64,7 +65,7 @@ public class GoodsController {
         goods.setCreateTime(date);
         Goods res = goodsService.findByName(goods.getGoodsName());
         if (res != null) {
-//                throw new BusinessException("该用户已存在");
+            logger.info("添加失败，"+goods.getGoodsName()+"已存在");
             return AjaxObject.error(1, "用户已存在");
         }
         goodsService.insert(goods);
@@ -79,11 +80,11 @@ public class GoodsController {
         goods.setProductNo("003232");
         try {
             goodsService.update(goods);
-        }catch (Exception e){
+        } catch (Exception e) {
             return AjaxObject.error(e.getMessage());
         }
 
-       return AjaxObject.ok();
+        return AjaxObject.ok();
     }
 
     @RequestMapping("/delete/{id}")
