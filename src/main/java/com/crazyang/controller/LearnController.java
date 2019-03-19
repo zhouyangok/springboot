@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/** 教程页面
- * Created by tengj on 2017/3/13.
+/**
+ * @ClassName LearnController
+ * @Description: TODO
+ * @Author zhouyang
+ * @Date 2019/3/1 上午11:26.
  */
 @Controller
 @RequestMapping("/learn")

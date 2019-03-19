@@ -1,6 +1,7 @@
 package com.crazyang.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,8 +11,10 @@ import java.util.Date;
  * @Date 2019/3/8 下午3:55.
  */
 @Table(name = "goods")
-public class Goods {
+public class Goods implements Serializable {
 
+
+    private static final long serialVersionUID = -2715441595609219097L;
     /**
      * 商品ID
      */
@@ -182,5 +185,25 @@ public class Goods {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "goodsId=" + goodsId +
+                ", goodsSn='" + goodsSn + '\'' +
+                ", productNo='" + productNo + '\'' +
+                ", goodsName='" + goodsName + '\'' +
+                ", goodsImg='" + goodsImg + '\'' +
+                ", marketPrice=" + marketPrice +
+                ", shopPrice=" + shopPrice +
+                ", warnStock=" + warnStock +
+                ", goodsStock=" + goodsStock +
+                ", sale=" + sale +
+                ", best=" + best +
+                ", hot=" + hot +
+                ", dataFlag=" + dataFlag +
+                ", createTime=" + createTime +
+                '}';
     }
 }

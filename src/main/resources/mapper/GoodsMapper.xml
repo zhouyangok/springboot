@@ -37,7 +37,7 @@
 
     <update id="update" parameterType="com.crazyang.entity.Goods">
         UPDATE goods
-        <set>
+        <trim prefix="set" suffixOverrides=",">
             <if test="goodsSn!=null">
                 goodsSn = #{goodsSn},
             </if>
@@ -66,15 +66,15 @@
                 sale=#{sale},
             </if>
             <if test="best!=null">
-                sabestle=#{best},
+                best=#{best},
             </if>
             <if test="hot!=null">
                 hot=#{hot},
             </if>
             <if test="dataFlag!=null">
-                dataFlag=#{dataFlag},
+                dataFlag=#{dataFlag}
             </if>
-        </set>
+        </trim>
         WHERE goodsId = #{goodsId}
     </update>
 

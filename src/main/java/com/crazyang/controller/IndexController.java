@@ -4,11 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/** 主页
- * Created by tengj on 2017/4/10.
+/**
+ * @ClassName IndexController
+ * @Description: TODO
+ * @Author zhouyang
+ * @Date 2019/2/28 上午11:26.
  */
-
-
 @Controller
 public class IndexController  extends  AbstractController{
 

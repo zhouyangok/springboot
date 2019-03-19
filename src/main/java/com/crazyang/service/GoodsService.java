@@ -16,7 +16,7 @@ public interface GoodsService extends IService<Goods> {
 
     List<Goods> queryGoodsList(Page<Goods> page);
 
-    Goods getOne(int igoodsIdd);
+    Goods getOne(int goodsId);
 
     Goods findByName(String goodsName);
 

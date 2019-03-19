@@ -10,6 +10,7 @@ import com.crazyang.service.UserService;
 import com.crazyang.core.tools.MD5Utils;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,6 +33,7 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
     }
 
     @Override
+
     public User getOne(int id) {
         return userMapper.getOne(id);
     }

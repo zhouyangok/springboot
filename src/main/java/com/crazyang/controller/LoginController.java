@@ -13,8 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
-/** 登录
- * Created by tengj on 2017/4/10.
+/**
+ * @ClassName LoginController
+ * @Description: TODO
+ * @Author zhouyang
+ * @Date 2019/2/27 上午11:26.
  */
 @Controller
 public class LoginController extends  AbstractController{
