@@ -1,11 +1,9 @@
 package com.crazyang.service;
 
-import com.crazyang.core.util.Page;
+import com.crazyang.common.baseClass.Page;
 import com.crazyang.entity.User;
-import com.crazyang.model.LeanQueryLeanListReq;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by zhouyang

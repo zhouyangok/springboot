@@ -1,8 +1,6 @@
 package com.crazyang.dao;
 
-import com.crazyang.core.util.MyMapper;
-import com.crazyang.entity.Permission;
-import com.crazyang.entity.Role;
+import com.crazyang.common.baseClass.MyMapper;
 import com.crazyang.entity.UserRole;
 import org.springframework.stereotype.Component;
 

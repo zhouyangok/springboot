@@ -1,6 +1,6 @@
 package com.crazyang.controller;
 
-import com.crazyang.core.util.AjaxObject;
+import com.crazyang.common.baseClass.AjaxObject;
 import com.crazyang.entity.SwaggerTest;
 import io.swagger.annotations.*;
 import org.slf4j.Logger;

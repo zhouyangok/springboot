@@ -11,6 +11,7 @@ import java.util.Date;
  * @Date 2019/3/8 下午3:55.
  */
 @Table(name = "goods")
+@Entity
 public class Goods implements Serializable {
 
 

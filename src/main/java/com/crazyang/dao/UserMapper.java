@@ -1,7 +1,7 @@
 package com.crazyang.dao;
 
 import com.crazyang.entity.User;
-import com.crazyang.core.util.MyMapper;
+import com.crazyang.common.baseClass.MyMapper;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;

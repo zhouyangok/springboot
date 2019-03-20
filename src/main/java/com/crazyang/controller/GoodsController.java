@@ -1,8 +1,7 @@
 package com.crazyang.controller;
 
-import com.crazyang.core.exception.BusinessException;
-import com.crazyang.core.util.AjaxObject;
-import com.crazyang.core.util.Page;
+import com.crazyang.common.baseClass.AjaxObject;
+import com.crazyang.common.baseClass.Page;
 import com.crazyang.entity.Goods;
 import com.crazyang.service.GoodsService;
 import io.swagger.annotations.ApiOperation;
@@ -16,7 +15,7 @@ import java.util.List;
 
 /**
  * @ClassName GoodsController
- * @Description: TODO
+ * @Description: 商品控制层
  * @Author zhouyang
  * @Date 2019/3/15 上午11:26.
  */

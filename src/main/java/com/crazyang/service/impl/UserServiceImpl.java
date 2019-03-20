@@ -1,16 +1,13 @@
 package com.crazyang.service.impl;
 
-import com.crazyang.core.constant.CommonConstant;
-import com.crazyang.core.exception.BusinessException;
-import com.crazyang.core.tools.StringUtil;
-import com.crazyang.core.util.Page;
+import com.crazyang.common.exception.BusinessException;
+import com.crazyang.common.baseClass.Page;
 import com.crazyang.dao.UserMapper;
 import com.crazyang.entity.User;
 import com.crazyang.service.UserService;
-import com.crazyang.core.tools.MD5Utils;
+import com.crazyang.common.utils.MD5Utils;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

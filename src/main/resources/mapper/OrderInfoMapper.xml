@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crazyang.dao.OrderInfoMapper">
+    <resultMap id="BaseResultMap" type="com.crazyang.entity.OrderInfo">
+        <id column="orderId" jdbcType="BIGINT" property="orderId"/>
+        <result column="userId" jdbcType="INTEGER" property="userId"/>
+        <result column="orderNo" jdbcType="VARCHAR" property="orderNo"/>
+        <result column="orderPrice" jdbcType="VARCHAR" property="orderPrice"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="create_time" jdbcType="DATE" property="createTime"/>
+    </resultMap>
+
+    <select id="queryOrderList" resultType="com.crazyang.entity.OrderInfo">
+        SELECT * from order_info where 1=1
+        <if test="orderId != null and orderId.length!= 0">
+            and orderId like CONCAT('%',#{orderId},'%')
+        </if>
+        order by orderId desc
+    </select>
+
+    <select id="queryOrderByUserId" resultType="com.crazyang.entity.OrderInfo">
+        SELECT * from order_info  userId =#{userId}
+        order by orderId desc
+    </select>
+
+    <select id="queryOrderDetailByOrderId" resultType="com.crazyang.entity.OrderDetail">
+        SELECT * from order_detail where orderId=#{orderId}
+        order by detailId desc
+    </select>
+
+
+    <insert id="insert" parameterType="com.crazyang.entity.OrderInfo" >
+    insert into order_info
+    (orderId,userId, orderNo,orderPrice,orderStatus,create_time)
+    values
+    (#{orderId},#{userId},#{orderNo},#{orderPrice}, #{status},#{createTime})
+    </insert>
+
+    <insert id="insertOrderDetail" parameterType="com.crazyang.entity.OrderDetail">
+        insert into order_detail
+        (orderId,goodsId, goodsName,goodsPrice,goodsNum,create_time)
+        values
+        (#{orderId},#{goodsId},#{goodsName},#{goodsPrice}, #{goodsNum},#{createTime})
+    </insert>
+
+    <update id="update" parameterType="com.crazyang.entity.OrderInfo">
+        UPDATE order_info
+        <set>
+            <if test="orderPrice!=null">
+                orderPrice=#{orderPrice},
+            </if>
+            <if test="status!=null">
+                status=#{status},
+            </if>
+        </set>
+        WHERE orderId = #{orderId}
+    </update>
+
+    <!--<delete id="deleteById" parameterType="int">-->
+      <!--DELETE FROM order_info-->
+      <!--WHERE  orderId = #{orderId}-->
+    <!--</delete>-->
+</mapper>

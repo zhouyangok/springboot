@@ -1,9 +1,8 @@
 package com.crazyang.service.impl;
 
-import com.crazyang.core.exception.BusinessException;
-import com.crazyang.core.util.Page;
+import com.crazyang.common.exception.BusinessException;
+import com.crazyang.common.baseClass.Page;
 import com.crazyang.entity.Goods;
-import com.crazyang.entity.User;
 import com.crazyang.service.GoodsService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,8 +12,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * @ClassName GoodsServiceImplTest
@@ -63,9 +60,8 @@ public class GoodsServiceImplTest {
             goods.setCreateTime(date);
             Goods res = goodsService.findByName(goods.getGoodsName());
             if(res!=null){
-                throw new BusinessException("该用户已存在");
+                throw new BusinessException("该商品已存在");
             }
-            int result = goodsService.insert(goods);
         }
     }
 

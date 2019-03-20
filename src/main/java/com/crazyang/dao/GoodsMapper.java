@@ -1,6 +1,6 @@
 package com.crazyang.dao;
 
-import com.crazyang.core.util.MyMapper;
+import com.crazyang.common.baseClass.MyMapper;
 import com.crazyang.entity.Goods;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;

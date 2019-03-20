@@ -1,19 +1,15 @@
 package com.crazyang.service.impl;
 
-import com.crazyang.core.util.Page;
+import com.crazyang.common.baseClass.Page;
 import com.crazyang.dao.GoodsMapper;
 import com.crazyang.entity.Goods;
-import com.crazyang.entity.User;
 import com.crazyang.service.GoodsService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**

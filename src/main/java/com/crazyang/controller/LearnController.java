@@ -2,8 +2,8 @@ package com.crazyang.controller;
 
 
 import com.crazyang.entity.LearnResource;
-import com.crazyang.core.util.AjaxObject;
-import com.crazyang.core.util.Page;
+import com.crazyang.common.baseClass.AjaxObject;
+import com.crazyang.common.baseClass.Page;
 import com.crazyang.model.LeanQueryLeanListReq;
 import com.crazyang.service.LearnService;
 import com.github.pagehelper.PageInfo;

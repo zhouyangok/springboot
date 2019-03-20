@@ -1,13 +1,16 @@
 package com.crazyang.service;
 
 import com.crazyang.entity.LearnResource;
-import com.crazyang.core.util.Page;
+import com.crazyang.common.baseClass.Page;
 import com.crazyang.model.LeanQueryLeanListReq;
 
 import java.util.List;
 
 /**
- * Created by tengj on 2017/4/7.
+ * @ClassName LearnService
+ * @Description: 学习服务层接口
+ * @Author zhouyang
+ * @Date 2019/3/8 上午11:16.
  */
 
 public interface LearnService  extends IService<LearnResource>{
