@@ -35,6 +35,8 @@ java -jar springboot-0.0.1-SNAPSHOT.jar
 
 - 完成数据添加时事务管理
 
+- 项目中使用拦截器
+
 - 集成rabbitmq
 
 - 完善swagger自动化接口测试
@@ -42,3 +44,25 @@ java -jar springboot-0.0.1-SNAPSHOT.jar
 - 将日志信息添加到数据库
 
 - 添加spring security 安全认证，完成用户-角色-权限添加
+
+
+###日志配置文件暂存
+
+```$xslt
+ <appender name="DB-CLASSIC-MYSQL-POOL" class="ch.qos.logback.classic.db.DBAppender">
+            <connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">
+                <dataSource class="org.apache.commons.dbcp.BasicDataSource">
+                    <driverClassName>com.mysql.jdbc.Driver</driverClassName>
+                    <url>jdbc:mysql://101.132.146.171:3306/spring?characterEncoding=UTF-8</url>
+                    <username>root</username>
+                    <password>root</password>
+                </dataSource>
+            </connectionSource>
+            <!--这里设置日志级别为error-->
+            <filter class="ch.qos.logback.classic.filter.LevelFilter">
+                <level>error</level>
+                <onMatch>ACCEPT</onMatch>
+                <onMismatch>DENY</onMismatch>
+            </filter>
+        </appender>
+```
