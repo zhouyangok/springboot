@@ -147,10 +147,10 @@
             <version>2.1.0</version>
         </dependency>
         <!-- 日志写入数据库 -->
-        <dependency>
-            <groupId>commons-dbcp</groupId>
-            <artifactId>commons-dbcp</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>commons-dbcp</groupId>-->
+            <!--<artifactId>commons-dbcp</artifactId>-->
+        <!--</dependency>-->
     </dependencies>
 
     <build>

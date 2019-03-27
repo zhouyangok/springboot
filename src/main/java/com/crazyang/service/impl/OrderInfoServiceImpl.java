@@ -3,6 +3,7 @@ package com.crazyang.service.impl;
 import com.crazyang.common.exception.BusinessException;
 import com.crazyang.common.baseClass.Page;
 import com.crazyang.common.utils.ArithUtils;
+import com.crazyang.common.utils.GetTimeID;
 import com.crazyang.dao.OrderInfoMapper;
 import com.crazyang.entity.OrderDetail;
 import com.crazyang.entity.OrderInfo;
@@ -63,20 +64,19 @@ public class OrderInfoServiceImpl extends BaseService<OrderInfo> implements Orde
         //TODO 如何创建不重复的id
         OrderInfo orderInfo = new OrderInfo();
         Double price = 0D;
-        int orderId = 10001;
+        int orderId = GetTimeID.getTimeId();
 
         //存入订单信息
         //存入订单详情
         orderInfo.setOrderId(orderId);
         //设置订单编号
-        orderInfo.setOrderNo(String.valueOf(System.currentTimeMillis()));
+        orderInfo.setOrderNo(GetTimeID.getGuid());
         //订单状态：状态：1、未付款，2、已付款，3、未发货，4、已发货
         orderInfo.setStatus(1);
         orderInfo.setUserId(orderList.getUserId());
         orderInfo.setCreateTime(new Date());
         for (OrderDetail orderDetail : orderList.getOrderDetails()) {
             OrderDetail orderDetailData = new OrderDetail();
-
             orderDetailData.setCreateTime(new Date());
             orderDetailData.setOrderId(orderId);
             orderDetailData.setGoodsNum(orderDetail.getGoodsNum());
@@ -84,8 +84,6 @@ public class OrderInfoServiceImpl extends BaseService<OrderInfo> implements Orde
             orderDetailData.setGoodsPrice(orderDetail.getGoodsPrice());
             orderDetailData.setGoodsName("goodsName" + orderDetail.getGoodsId());
             orderInfoMapper.insertOrderDetail(orderDetailData);
-            System.out.println(orderDetail.getGoodsNum());
-            System.out.println(orderDetail.getGoodsPrice());
             price += ArithUtils.mul(orderDetail.getGoodsPrice(), orderDetail.getGoodsNum());
         }
         orderInfo.setOrderPrice(price);

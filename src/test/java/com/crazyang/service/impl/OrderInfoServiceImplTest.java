@@ -1,5 +1,6 @@
 package com.crazyang.service.impl;
 
+import com.crazyang.common.utils.GetTimeID;
 import com.crazyang.entity.OrderDetail;
 import com.crazyang.model.OrderList;
 import com.crazyang.service.OrderInfoService;
@@ -51,8 +52,8 @@ public class OrderInfoServiceImplTest {
         List<OrderDetail> orderDetailList = new ArrayList<OrderDetail>();
         for (int i = 0; i < 5; i++) {
             OrderDetail orderDetail = new OrderDetail();
-            orderDetail.setGoodsId(i);
-            orderDetail.setGoodsNum(i+2);
+            orderDetail.setGoodsId(GetTimeID.getTimeId());
+            orderDetail.setGoodsNum(i);
             orderDetail.setGoodsPrice(100d);
             orderDetailList.add(orderDetail);
         }
