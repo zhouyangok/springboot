@@ -2,6 +2,7 @@ package com.crazyang.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -40,7 +41,7 @@ public class OrderInfo implements Serializable {
     /**
      *订单总价
      */
-    private Double orderPrice;
+    private BigDecimal orderPrice;
 
     /**
      *订单状态
@@ -79,11 +80,11 @@ public class OrderInfo implements Serializable {
         this.createTime = createTime;
     }
 
-    public Double getOrderPrice() {
+    public BigDecimal getOrderPrice() {
         return orderPrice;
     }
 
-    public void setOrderPrice(Double orderPrice) {
+    public void setOrderPrice(BigDecimal orderPrice) {
         this.orderPrice = orderPrice;
     }
 

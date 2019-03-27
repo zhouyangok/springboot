@@ -41,7 +41,7 @@ public class GoodsServiceImpl extends BaseService<Goods> implements GoodsService
     }
 
     @Override
-    public Goods getOne(int goodsId) {
+    public Goods findById(int goodsId) {
         String goodsKey = String.valueOf(goodsId);
         Goods goods = (Goods) redisTemplate.opsForValue().get(goodsKey);
         if (goods == null) {

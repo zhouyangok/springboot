@@ -1,19 +1,26 @@
 package com.crazyang.service.impl;
 
+import com.crazyang.common.enums.OrderStatusEnum;
+import com.crazyang.common.enums.ResultEnum;
 import com.crazyang.common.exception.BusinessException;
 import com.crazyang.common.baseClass.Page;
 import com.crazyang.common.utils.ArithUtils;
 import com.crazyang.common.utils.GetTimeID;
 import com.crazyang.dao.OrderInfoMapper;
+import com.crazyang.entity.Goods;
 import com.crazyang.entity.OrderDetail;
 import com.crazyang.entity.OrderInfo;
 import com.crazyang.model.OrderList;
+import com.crazyang.service.GoodsService;
 import com.crazyang.service.OrderInfoService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 
@@ -28,6 +35,8 @@ public class OrderInfoServiceImpl extends BaseService<OrderInfo> implements Orde
 
     @Autowired
     private OrderInfoMapper orderInfoMapper;
+    @Autowired
+    private GoodsService goodsService;
 
     @Override
     public List<OrderInfo> queryOrderList(Page<OrderInfo> page) {
@@ -55,39 +64,51 @@ public class OrderInfoServiceImpl extends BaseService<OrderInfo> implements Orde
         return orderList;
     }
 
-    @Override
+
     /**
      * 创建订单
+     * 加入事务
      */
+    @Override
+    @Transactional
     public int createOrder(OrderList orderList) {
 
         //TODO 如何创建不重复的id
         OrderInfo orderInfo = new OrderInfo();
-        Double price = 0D;
-        int orderId = GetTimeID.getTimeId();
-
-        //存入订单信息
-        //存入订单详情
-        orderInfo.setOrderId(orderId);
-        //设置订单编号
+        BigDecimal price = new BigDecimal(BigInteger.ZERO);
+        //1.设置订单id
+        orderInfo.setOrderId(GetTimeID.getTimeId());
+        //2.设置订单编号
         orderInfo.setOrderNo(GetTimeID.getGuid());
-        //订单状态：状态：1、未付款，2、已付款，3、未发货，4、已发货
-        orderInfo.setStatus(1);
+        //3.订单状态：状态：1、未付款，2、已付款，3、未发货，4、已发货
+        orderInfo.setStatus(OrderStatusEnum.NEW.getCode());
         orderInfo.setUserId(orderList.getUserId());
         orderInfo.setCreateTime(new Date());
         for (OrderDetail orderDetail : orderList.getOrderDetails()) {
+            //获取商品信息
+            Goods productInfo = goodsService.findById(orderDetail.getGoodsId());
+            //商品不存在则抛出异常
+            if (productInfo == null) {
+                throw new BusinessException(ResultEnum.PRODUCT_NOT_EXIST);
+            }
             OrderDetail orderDetailData = new OrderDetail();
             orderDetailData.setCreateTime(new Date());
-            orderDetailData.setOrderId(orderId);
+            orderDetailData.setOrderId(orderInfo.getOrderId());
             orderDetailData.setGoodsNum(orderDetail.getGoodsNum());
             orderDetailData.setGoodsId(orderDetail.getGoodsId());
             orderDetailData.setGoodsPrice(orderDetail.getGoodsPrice());
             orderDetailData.setGoodsName("goodsName" + orderDetail.getGoodsId());
+            //4.将详情存入数据库
             orderInfoMapper.insertOrderDetail(orderDetailData);
-            price += ArithUtils.mul(orderDetail.getGoodsPrice(), orderDetail.getGoodsNum());
+            //5.计算订单总价
+            price =ArithUtils.mul(orderDetail.getGoodsPrice(), orderDetail.getGoodsNum()).add(price);
         }
         orderInfo.setOrderPrice(price);
-        return orderInfoMapper.insert(orderInfo);
+        //6.将订单主表写入数据库
+        int result = orderInfoMapper.insert(orderInfo);
+        //7.减库存
+
+        return result;
     }
 
     @Override

@@ -50,11 +50,11 @@ public class OrderInfoServiceImplTest {
         OrderList orderList = new OrderList();
         orderList.setUserId(1);
         List<OrderDetail> orderDetailList = new ArrayList<OrderDetail>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 1; i < 3; i++) {
             OrderDetail orderDetail = new OrderDetail();
-            orderDetail.setGoodsId(GetTimeID.getTimeId());
+            orderDetail.setGoodsId(i);
             orderDetail.setGoodsNum(i);
-            orderDetail.setGoodsPrice(100d);
+            orderDetail.setGoodsPrice(7.3126);
             orderDetailList.add(orderDetail);
         }
         orderList.setOrderDetails(orderDetailList);

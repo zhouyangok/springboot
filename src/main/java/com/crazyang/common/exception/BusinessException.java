@@ -1,5 +1,7 @@
 package com.crazyang.common.exception;
 
+import com.crazyang.common.enums.ResultEnum;
+
 import java.io.Serializable;
 
 public class BusinessException extends RuntimeException implements Serializable {
@@ -7,11 +9,16 @@ public class BusinessException extends RuntimeException implements Serializable 
 private static final long serialVersionUID = 1L;
 	
     private String msg;
-    private int code = 500;
+    private Integer code;
     
     public BusinessException(String msg) {
 		super(msg);
 		this.msg = msg;
+	}
+
+	public BusinessException(ResultEnum resultEnum){
+		super(resultEnum.getMsg());
+		this.code = resultEnum.getCode();
 	}
 	
 	public BusinessException(String msg, Throwable e) {

@@ -42,9 +42,9 @@ public class GoodsController {
     }
 
     @ApiOperation(value = "根据id获取山炮信息")
-    @GetMapping("/getOne/{goodsId}")
-    public AjaxObject getOne(@PathVariable("goodsId") int goodsId) {
-        Goods goods = goodsService.getOne(goodsId);
+    @GetMapping("/findById/{goodsId}")
+    public AjaxObject findById(@PathVariable("goodsId") int goodsId) {
+        Goods goods = goodsService.findById(goodsId);
         return AjaxObject.ok().put("goods", goods);
     }
 

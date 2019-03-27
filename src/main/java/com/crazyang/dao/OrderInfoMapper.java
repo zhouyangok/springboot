@@ -14,7 +14,7 @@ import java.util.Map;
  * @ClassName OrderInfo
  * @Description: TODO
  * @Author zhouyang
- * @Date 2019/3/20 上午11:11.
+ * @Date 2019/3/20 上午11:12.
  */
 @Component
 public interface OrderInfoMapper extends MyMapper<OrderInfo> {
