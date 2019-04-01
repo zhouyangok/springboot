@@ -31,9 +31,9 @@ java -jar springboot-0.0.1-SNAPSHOT.jar
 
 - 集成 fastDFS 分布式文件系统
 
-- 完善redis缓存添加
+- 完善redis缓存添加（已完成）
 
-- 完成数据添加时事务管理
+- 完成数据添加时事务管理（已完成）
 
 - 项目中使用拦截器
 

@@ -25,6 +25,8 @@ public interface OrderInfoService extends IService<OrderInfo> {
 
     int createOrder(OrderList orderList);
 
+     int cancelOrder(OrderList orderList);
+
     int update(OrderInfo orderInfo);
 
     int deleteById(int orderId);

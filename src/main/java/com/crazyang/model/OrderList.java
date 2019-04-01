@@ -1,6 +1,7 @@
 package com.crazyang.model;
 
 import com.crazyang.entity.OrderDetail;
+import lombok.Data;
 
 import java.util.Date;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
  * @Date 2019/3/20 下午1:51.
  */
 
+@Data
 public class OrderList {
 
     private Integer orderId;
@@ -37,68 +39,12 @@ public class OrderList {
     /**
      *订单状态
      */
-    private int status;
+    private Integer status;
 
     /**
      * 订单商品详情
      */
     private List<OrderDetail> orderDetails;
-
-    public Integer getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
-    }
-
-    public String getOrderNo() {
-        return orderNo;
-    }
-
-    public void setOrderNo(String orderNo) {
-        this.orderNo = orderNo;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Double getOrderPrice() {
-        return orderPrice;
-    }
-
-    public void setOrderPrice(Double orderPrice) {
-        this.orderPrice = orderPrice;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public List<OrderDetail> getOrderDetails() {
-        return orderDetails;
-    }
-
-    public void setOrderDetails(List<OrderDetail> orderDetails) {
-        this.orderDetails = orderDetails;
-    }
 
 
 }

@@ -38,9 +38,9 @@
 
     <insert id="insertOrderDetail" parameterType="com.crazyang.entity.OrderDetail">
         insert into order_detail
-        (orderId,goodsId, goodsName,goodsPrice,goodsNum,create_time)
+        (orderId,goodsId, goodsName,orderStatus,goodsPrice,goodsNum,create_time)
         values
-        (#{orderId},#{goodsId},#{goodsName},#{goodsPrice}, #{goodsNum},#{createTime})
+        (#{orderId},#{goodsId},#{goodsName},#{status},#{goodsPrice}, #{goodsNum},#{createTime})
     </insert>
 
     <update id="update" parameterType="com.crazyang.entity.OrderInfo">
@@ -50,7 +50,7 @@
                 orderPrice=#{orderPrice},
             </if>
             <if test="status!=null">
-                status=#{status},
+                orderStatus=#{status},
             </if>
         </set>
         WHERE orderId = #{orderId}

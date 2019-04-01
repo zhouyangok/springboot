@@ -1,5 +1,6 @@
 package com.crazyang.service.impl;
 
+import com.crazyang.common.enums.OrderStatusEnum;
 import com.crazyang.common.utils.GetTimeID;
 import com.crazyang.entity.OrderDetail;
 import com.crazyang.model.OrderList;
@@ -59,6 +60,26 @@ public class OrderInfoServiceImplTest {
         }
         orderList.setOrderDetails(orderDetailList);
         int i = service.createOrder(orderList);
+        System.out.println(i);
+    }
+
+    @Test
+    public void cancelOrder(){
+        OrderList orderList = new OrderList();
+        orderList.setUserId(1);
+        List<OrderDetail> orderDetailList = new ArrayList<OrderDetail>();
+        for (int i = 1; i < 2; i++) {
+            OrderDetail orderDetail = new OrderDetail();
+            orderDetail.setGoodsId(i);
+            orderDetail.setGoodsNum(1);
+            orderDetail.setGoodsPrice(7.3126);
+            orderDetailList.add(orderDetail);
+        }
+        orderList.setOrderDetails(orderDetailList);
+        orderList.setStatus(OrderStatusEnum.NEW.getCode());
+        orderList.setOrderId(841656101);
+        orderList.setOrderNo("201953670841656102");
+        int i = service.cancelOrder(orderList);
         System.out.println(i);
     }
 

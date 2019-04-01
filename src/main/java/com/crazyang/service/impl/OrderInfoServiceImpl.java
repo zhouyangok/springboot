@@ -18,6 +18,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -101,7 +102,7 @@ public class OrderInfoServiceImpl extends BaseService<OrderInfo> implements Orde
             //4.将详情存入数据库
             orderInfoMapper.insertOrderDetail(orderDetailData);
             //5.计算订单总价
-            price =ArithUtils.mul(orderDetail.getGoodsPrice(), orderDetail.getGoodsNum()).add(price);
+            price = ArithUtils.mul(orderDetail.getGoodsPrice(), orderDetail.getGoodsNum()).add(price);
         }
         orderInfo.setOrderPrice(price);
         //6.将订单主表写入数据库
@@ -109,6 +110,37 @@ public class OrderInfoServiceImpl extends BaseService<OrderInfo> implements Orde
         //7.减库存
 
         return result;
+    }
+
+
+    /**
+     * 取消订单
+     *
+     * @param orderList
+     * @return
+     */
+    @Override
+    @Transactional
+    public int cancelOrder(OrderList orderList) {
+        OrderInfo orderInfo = new OrderInfo();
+        //判断订单状态，如果订单状态不是新订单，则抛出异常
+        if (!orderList.getStatus().equals(OrderStatusEnum.NEW.getCode())) {
+            throw new BusinessException(ResultEnum.ORDER_STATUS_ERROR);
+        }
+        //修改订单状态,并保存到数据库
+        orderList.setStatus(OrderStatusEnum.CANCEL.getCode());
+        BeanUtils.copyProperties(orderList, orderInfo);
+        int result = orderInfoMapper.update(orderInfo);
+        if (result < 1) {
+            throw new BusinessException(ResultEnum.ORDER_UPDATE_FAIL);
+        }
+        //将商品返还库存
+        if (CollectionUtils.isEmpty(orderList.getOrderDetails())) {
+            throw new BusinessException(ResultEnum.ORDER_DETAIL_EMPTY);
+        }
+        //如果用户已经付款，则将钱款返还给用户
+
+        return 1;
     }
 
     @Override
