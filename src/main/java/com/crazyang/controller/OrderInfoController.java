@@ -29,7 +29,7 @@ public class OrderInfoController extends AbstractController {
     private OrderInfoService orderInfoService;
 
     @ApiOperation(value = "查看订单信息", response = List.class)
-    @GetMapping("/getALl")
+    @GetMapping("/getAll")
     public AjaxObject getAllOrder(Page<OrderInfo> page) {
         List<OrderInfo> orderInfoList = orderInfoService.queryOrderList(page);
         return AjaxObject.ok().put("goodsList", orderInfoList);

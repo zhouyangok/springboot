@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
  * Created by tengj on 2017/3/29.
  */
 public class MyInterceptor implements HandlerInterceptor {
-    @Override
+   /* @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String ip = request.getRemoteAddr();
         long startTime = System.currentTimeMillis();
@@ -23,10 +23,10 @@ public class MyInterceptor implements HandlerInterceptor {
         System.out.println("用户:"+ip+",访问目标:"+method.getDeclaringClass().getName() + "." + method.getName());
 
         User user=(User)request.getSession().getAttribute("user");
-        /*if(null==user){
+        *//*if(null==user){
             response.sendRedirect("login");
            return false;
-        }*/
+        }*//*
         return true;
     }
 
@@ -50,5 +50,5 @@ public class MyInterceptor implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
 
-    }
+    }*/
 }

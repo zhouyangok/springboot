@@ -67,7 +67,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
-@Api(value="Swagger Management System", description="Operations pertaining to swagger in Swagger Management System")
+@Api(value="Swagger管理系统", description="Operations pertaining to swagger in Swagger Management System")
 public class SwaggerTestController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());

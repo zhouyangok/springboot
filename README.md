@@ -37,9 +37,11 @@ java -jar springboot-0.0.1-SNAPSHOT.jar
 
 - 项目中使用拦截器(已完成)
 
-- 集成rabbitmq
+- 集成rabbitmq（已完成http://101.132.146.171:15672查看rabbit页面）
 
-- 完善swagger自动化接口测试
+- 集成druid对数据库进行监控(已完成http://localhost:8082/druid/index.html，用户名admin，密码admin)
+
+- 完善swagger自动化接口测试（http://127.0.0.1:8082/swagger-ui.html#/）
 
 - 将日志信息添加到数据库
 
