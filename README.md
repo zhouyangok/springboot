@@ -43,7 +43,7 @@ java -jar springboot-0.0.1-SNAPSHOT.jar
 
 - 完善swagger自动化接口测试（http://127.0.0.1:8082/swagger-ui.html#/）
 
-- 将日志信息添加到数据库
+- 将日志信息添加到数据库(已完成)
 
 - 添加spring security 安全认证，完成用户-角色-权限添加
 

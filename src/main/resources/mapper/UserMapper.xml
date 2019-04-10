@@ -71,14 +71,9 @@
                 sex=#{sex},
             </if>
             <if test="status!=null">
-                staus=#{staus}
+                status=#{status}
             </if>
         </set>
         WHERE id = #{id}
     </update>
-
-    <!--<delete id="deleteById" parameterType="int">
-      DELETE FROM USER
-      WHERE  id = #{id}
-    </delete>-->
 </mapper>

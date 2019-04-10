@@ -11,6 +11,24 @@
             <pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
+     <!-- 说明：
+              1、日志级别及文件
+                  日志记录采用分级记录，级别与日志文件名相对应，不同级别的日志信息记录到不同的日志文件中
+                  例如：error级别记录到log_error_xxx.log或log_error.log（该文件为当前记录的日志文件），而log_error_xxx.log为归档日志，
+                  日志文件按日期记录，同一天内，若日志文件大小等于或大于2M，则按0、1、2...顺序分别命名
+                  例如log-level-2013-12-21.0.log
+                  其它级别的日志也是如此。
+              2、文件路径
+                  若开发、测试用，在Eclipse中运行项目，则到Eclipse的安装路径查找logs文件夹，以相对路径../logs。
+                  若部署到Tomcat下，则在Tomcat下的logs文件中
+              3、Appender
+                  FILEDEBUG对应debug级别，文件名以log-debug-xxx.log形式命名
+                  FILEERROR对应error级别，文件名以log-error-xxx.log形式命名
+                  FILEWARN对应warn级别，文件名以log-warn-xxx.log形式命名
+                  FILEINFO对应info级别，文件名以log-info-xxx.log形式命名
+                  CONSOLE将日志信息输出到控制上，为方便开发测试使用
+        -->
+
 
     <!--输出到文件-->
     <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -25,11 +43,27 @@
     </appender>
 
     <!-- 将日志写入数据库 -->
+    <!--日志异步到数据库  -->
+    <appender name="db-classic-oracle" class="ch.qos.logback.classic.db.DBAppender">
+    	<connectionSource class="ch.qos.logback.core.db.DriverManagerConnectionSource">
+    	<driverClass>com.mysql.jdbc.Driver</driverClass>
+    	<url>jdbc:mysql://101.132.146.171:3306/spring</url>
+    	<user>root</user>
+    	<password>root</password>
+    	</connectionSource>
+    	<!--这里设置日志级别为error-->
+                <filter class="ch.qos.logback.classic.filter.LevelFilter">
+                    <level>error</level>
+                    <onMatch>ACCEPT</onMatch>
+                    <onMismatch>DENY</onMismatch>
+                </filter>
 
+    </appender>
 
     <root level="info">
         <appender-ref ref="console" />
         <appender-ref ref="file" />
+        <appender-ref ref="db-classic-oracle"/>
     </root>
 
     <logger name="com.crazyang.dao" level="DEBUG" additivity="false">

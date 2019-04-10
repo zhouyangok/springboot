@@ -1,6 +1,9 @@
 package com.crazyang.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 /**
@@ -10,21 +13,32 @@ import java.util.Date;
  * @Date 2019/3/4 下午3:19.
  */
 
+/**
+ * 使用@Data注释，省略getter，setter方法
+ *
+ * @NotNull://CharSequence, Collection, Map 和 Array 对象不能是 null, 但可以是空集（size = 0）。  
+ * @NotEmpty://CharSequence, Collection, Map 和 Array 对象不能是 null 并且相关对象的 size 大于 0。  
+ * @NotBlank://String 不是 null 且去除两端空白字符后的长度（trimmed length）大于 0。
+ */
 @Table(name = "user")
 @Entity
+@Data
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String userId;
 
+    @NotBlank
     private String name;
 
     private String phone;
 
     private String address;
 
+    @NotBlank
     private String password;
 
     private String email;
@@ -36,91 +50,6 @@ public class User {
     private Date createTime;
 
     private Date updateTime;
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getSex() {
-        return sex;
-    }
-
-    public void setSex(int sex) {
-        this.sex = sex;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    /**
-     * @return id
-     */
-    public Integer getId() {
-        return id;
-    }
-
-    /**
-     * @param id
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * @return name
-     */
-    public String getName() {
-        return name;
-    }
 
     /**
      * @param name

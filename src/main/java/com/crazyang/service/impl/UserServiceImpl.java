@@ -44,7 +44,7 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
     public int insert(User user) {
         User userVo = userMapper.findByName(user.getName());
         if (userVo != null) {
-            throw new BusinessException("用户已存在");
+            throw new BusinessException(1,"用户已存在");
         }
         user.setUserId(String.valueOf(new Random().nextLong()));
         user.setPassword(MD5Utils.getResult(user.getPassword() + user.getName()));
@@ -59,16 +59,43 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
         return userMapper.insertBatch(userList);
     }
 
-
+    /**
+     * 修改用户，不包括用户密码
+     *
+     * @param user
+     * @return
+     */
     @Override
     public int update(User user) {
-        user.setPassword(MD5Utils.getResult(user.getPassword() + user.getName()));
-        return userMapper.update(user);
+        try {
+            return userMapper.update(user);
+        }catch (Exception e){
+            throw new BusinessException(1,e.getMessage());
+        }
+
+    }
+
+    /**
+     * 修改用户密码
+     *
+     * @param id
+     * @return
+     */
+    public int editPassword(int id, String password) {
+        return 0;
     }
 
 
     @Override
     public int deleteById(int id) {
-        return userMapper.deleteById(id);
+        User user = userMapper.getOne(id);
+        if(user==null){
+            throw new BusinessException(404,"用户不存在");
+        }
+        try {
+            return userMapper.deleteById(id);
+        }catch (Exception e){
+            throw new BusinessException("根据用户id"+id+"删除用户失败");
+        }
     }
 }

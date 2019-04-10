@@ -1,5 +1,7 @@
 package com.crazyang.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -12,6 +14,7 @@ import java.util.Date;
  */
 @Table(name = "order_detail")
 @Entity
+@Data
 public class OrderDetail implements Serializable {
 
     private static final long serialVersionUID = 2437067823498591670L;
@@ -47,62 +50,6 @@ public class OrderDetail implements Serializable {
      * 创建时间
      */
     private Date createTime;
-
-    public Integer getDetailId() {
-        return detailId;
-    }
-
-    public void setDetailId(Integer detailId) {
-        this.detailId = detailId;
-    }
-
-    public Integer getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
-    }
-
-    public Integer getGoodsId() {
-        return goodsId;
-    }
-
-    public void setGoodsId(Integer goodsId) {
-        this.goodsId = goodsId;
-    }
-
-    public Double getGoodsPrice() {
-        return goodsPrice;
-    }
-
-    public void setGoodsPrice(Double goodsPrice) {
-        this.goodsPrice = goodsPrice;
-    }
-
-    public String getGoodsName() {
-        return goodsName;
-    }
-
-    public void setGoodsName(String goodsName) {
-        this.goodsName = goodsName;
-    }
-
-    public Integer getGoodsNum() {
-        return goodsNum;
-    }
-
-    public void setGoodsNum(Integer goodsNum) {
-        this.goodsNum = goodsNum;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
 
     @Override
     public String toString() {

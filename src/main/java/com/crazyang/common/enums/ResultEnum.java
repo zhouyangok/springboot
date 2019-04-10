@@ -3,8 +3,10 @@ package com.crazyang.common.enums;
 import lombok.Getter;
 
 /**
- * Created by zhouyang
- * Date 2018/10/10.
+ * @ClassName OrderStatusEnum
+ * @Description: 结果枚举
+ * @Author zhouyang
+ * @Date 2019/3/27 上午10:52.
  */
 @Getter
 public enum ResultEnum {
