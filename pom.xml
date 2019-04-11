@@ -91,6 +91,7 @@
         <!--<optional>true</optional>-->
         <!--</dependency>-->
 
+        <!-- aop依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
@@ -210,6 +211,7 @@
                     <skip>true</skip>
                 </configuration>
             </plugin>
+            <!-- Mybatis Generator插件 -->
         </plugins>
     </build>
 </project>

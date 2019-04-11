@@ -43,7 +43,7 @@ java -jar springboot-0.0.1-SNAPSHOT.jar
 
 - 完善swagger自动化接口测试（http://127.0.0.1:8082/swagger-ui.html#/）
 
-- 将日志信息添加到数据库(已完成)
+- 将日志信息添加到数据库(使用AOP将日志添加到数据库完成)
 
 - 添加spring security 安全认证，完成用户-角色-权限添加
 
@@ -54,3 +54,7 @@ java -jar springboot-0.0.1-SNAPSHOT.jar
  sout
  写代码使用
 ```
+
+
+###更改
+2019-04-11 由于阿里云redis报连接异常，将redis切换为本机redis。

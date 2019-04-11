@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crazyang.dao.LogMapper">
+    <resultMap id="BaseResultMap" type="com.crazyang.entity.SysLog">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+    </resultMap>
+
+
+
+    <insert id="insertLog" parameterType="com.crazyang.entity.SysLog" >
+    insert into sys_log
+    (user_id,user_action,user_ip,create_time)
+    values
+    (#{userId},#{userAction},#{userIp},#{createTime})
+  </insert>
+</mapper>
