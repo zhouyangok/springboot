@@ -43,9 +43,11 @@ java -jar springboot-0.0.1-SNAPSHOT.jar
 
 - 完善swagger自动化接口测试（http://127.0.0.1:8082/swagger-ui.html#/）
 
-- 将日志信息添加到数据库(使用AOP将日志添加到数据库完成)
+- 将日志信息添加到数据库(使用AOP将日志添加到数据库完成，待完善)
 
 - 添加spring security 安全认证，完成用户-角色-权限添加
+
+- 集成mybatis generator 自动生成代码插件。
 
 
 ###日志配置文件暂存

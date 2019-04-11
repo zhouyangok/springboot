@@ -2,6 +2,7 @@ package com.crazyang.controller;
 
 import com.crazyang.common.baseClass.AjaxObject;
 import com.crazyang.common.baseClass.Page;
+import com.crazyang.common.config.logConfig.LogConfig;
 import com.crazyang.common.exception.BusinessException;
 import com.crazyang.entity.LearnResource;
 import com.crazyang.entity.User;
@@ -80,6 +81,7 @@ public class UserController {
      * @param user
      * @return
      */
+    @LogConfig("新增用户")
     @ApiOperation(value = "新增用户", response = AjaxObject.class)
     @ApiImplicitParams({
             @ApiImplicitParam( dataType = "String", name = "name", value = "用户名", required = true)
@@ -101,6 +103,7 @@ public class UserController {
      * @param user
      * @return
      */
+    @LogConfig("更新用户")
     @ApiOperation(value = "更新用户", response = AjaxObject.class)
     @ApiImplicitParams({
             @ApiImplicitParam( dataType = "int", name = "id", value = "用户id", required = true)
@@ -122,6 +125,7 @@ public class UserController {
      * @param id
      * @return
      */
+    @LogConfig("删除用户")
     @ApiImplicitParam( dataType = "int", name = "id", value = "用户id", required = true)
     @ApiOperation(value = "根据id删除用户", response = AjaxObject.class)
     @GetMapping("/delete/{id}")
