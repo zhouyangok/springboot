@@ -4,6 +4,7 @@ import com.crazyang.common.config.logConfig.LogConfig;
 import com.crazyang.service.LogService;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,8 +27,7 @@ public class LogController {
     @Autowired
     private LogService logService;
 
-    @RequestMapping("/aop")
-    @ResponseBody
+    @GetMapping("/aop")
     @LogConfig("测试aoplog")
     public Object aop(String name, String nick) {
         Map<String, Object> map =new HashMap<>();

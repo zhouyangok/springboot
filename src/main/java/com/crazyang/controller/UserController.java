@@ -49,6 +49,7 @@ public class UserController {
      * @param id
      * @return
      */
+    @LogConfig("查询用户")
     @ApiOperation(value = "根据用户id查看用户信息", response = AjaxObject.class)
     @GetMapping("/getUserById/{id}")
     public AjaxObject getUserById(@PathVariable(value = "id") int id) {
