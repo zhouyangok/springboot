@@ -1,15 +1,16 @@
-package com.crazyang.dao;
+package com.crazyang.dao.master;
 
 import com.crazyang.entity.User;
 import com.crazyang.common.baseClass.MyMapper;
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
 
-@Component
+@Mapper
 public interface UserMapper extends MyMapper<User> {
 
     List<User> queryUserList(Map<String, Object> map);

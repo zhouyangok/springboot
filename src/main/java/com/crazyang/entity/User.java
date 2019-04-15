@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -23,8 +24,9 @@ import java.util.Date;
 @Table(name = "user")
 @Entity
 @Data
-public class User {
+public class User implements Serializable{
 
+    private static final long serialVersionUID = 9175490794572613853L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

@@ -1,7 +1,6 @@
 package com.crazyang.service.impl;
 
-import com.crazyang.dao.PermissionMapper;
-import com.crazyang.entity.LearnResource;
+import com.crazyang.dao.master.PermissionMapper;
 import com.crazyang.entity.Permission;
 import com.crazyang.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;

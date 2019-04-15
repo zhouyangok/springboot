@@ -1,4 +1,4 @@
-package com.crazyang.dao;
+package com.crazyang.dao.master;
 
 import com.crazyang.common.baseClass.MyMapper;
 import com.crazyang.entity.Permission;

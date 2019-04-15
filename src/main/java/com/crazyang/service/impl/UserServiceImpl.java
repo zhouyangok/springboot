@@ -2,7 +2,7 @@ package com.crazyang.service.impl;
 
 import com.crazyang.common.exception.BusinessException;
 import com.crazyang.common.baseClass.Page;
-import com.crazyang.dao.UserMapper;
+import com.crazyang.dao.master.UserMapper;
 import com.crazyang.entity.User;
 import com.crazyang.service.UserService;
 import com.crazyang.common.utils.MD5Utils;

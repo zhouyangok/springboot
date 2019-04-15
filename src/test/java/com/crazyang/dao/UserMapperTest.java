@@ -1,5 +1,6 @@
 package com.crazyang.dao;
 
+import com.crazyang.dao.master.UserMapper;
 import com.crazyang.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;

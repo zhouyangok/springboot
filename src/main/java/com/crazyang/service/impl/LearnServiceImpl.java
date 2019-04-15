@@ -1,6 +1,6 @@
 package com.crazyang.service.impl;
 
-import com.crazyang.dao.LearnResourceMapper;
+import com.crazyang.dao.master.LearnResourceMapper;
 import com.crazyang.entity.LearnResource;
 import com.crazyang.service.LearnService;
 import com.crazyang.common.baseClass.Page;

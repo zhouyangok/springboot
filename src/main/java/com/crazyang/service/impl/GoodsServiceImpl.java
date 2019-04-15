@@ -1,7 +1,7 @@
 package com.crazyang.service.impl;
 
 import com.crazyang.common.baseClass.Page;
-import com.crazyang.dao.GoodsMapper;
+import com.crazyang.dao.master.GoodsMapper;
 import com.crazyang.entity.Goods;
 import com.crazyang.service.GoodsService;
 import com.github.pagehelper.PageHelper;

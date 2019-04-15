@@ -49,6 +49,8 @@ java -jar springboot-0.0.1-SNAPSHOT.jar
 
 - 集成mybatis generator 自动生成代码插件。
 
+- 集成多数据源，多数据库（两个mysql数据库的时候如何处理）。
+
 
 ###日志配置文件暂存
 

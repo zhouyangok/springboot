@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.crazyang.dao.LearnResourceMapper">
+<mapper namespace="com.crazyang.dao.master.LearnResourceMapper">
     <resultMap id="BaseResultMap" type="com.crazyang.entity.LearnResource">
         <!--
           WARNING - @mbg.generated
@@ -20,10 +20,10 @@
         </if>
         order by id desc
     </select>
-    <insert id="add" parameterType="LearnResource">
+    <insert id="add" parameterType="com.crazyang.entity.LearnResource">
     insert into learn_resource(author, title,url) values(#{author}, #{title},#{url})
    </insert>
-    <update id="update" parameterType="LearnResource">
+    <update id="update" parameterType="com.crazyang.entity.LearnResource">
         UPDATE learn_resource
         SET    author = #author#,
         title=#title#,

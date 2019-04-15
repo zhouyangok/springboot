@@ -1,6 +1,6 @@
 package com.crazyang.service.impl;
 
-import com.crazyang.dao.LogMapper;
+import com.crazyang.dao.master.LogMapper;
 import com.crazyang.entity.SysLog;
 import com.crazyang.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 @Service("logService")
 public class LogServiceImpl extends BaseService<SysLog> implements LogService {
+
     @Autowired
     private LogMapper logMapper;
 

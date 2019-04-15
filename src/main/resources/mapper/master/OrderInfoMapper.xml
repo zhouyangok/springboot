@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.crazyang.dao.OrderInfoMapper">
+<mapper namespace="com.crazyang.dao.master.OrderInfoMapper">
     <resultMap id="BaseResultMap" type="com.crazyang.entity.OrderInfo">
         <id column="orderId" jdbcType="BIGINT" property="orderId"/>
         <result column="userId" jdbcType="INTEGER" property="userId"/>

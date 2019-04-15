@@ -6,7 +6,7 @@ import com.crazyang.common.exception.BusinessException;
 import com.crazyang.common.baseClass.Page;
 import com.crazyang.common.utils.ArithUtils;
 import com.crazyang.common.utils.GetTimeID;
-import com.crazyang.dao.OrderInfoMapper;
+import com.crazyang.dao.master.OrderInfoMapper;
 import com.crazyang.entity.Goods;
 import com.crazyang.entity.OrderDetail;
 import com.crazyang.entity.OrderInfo;

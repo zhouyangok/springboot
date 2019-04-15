@@ -38,7 +38,7 @@ public class GoodsServiceImplTest {
 
     @Test
     public void getOne() throws Exception {
-        Goods goods = goodsService.findById(1);
+        Goods goods = goodsService.findById(2);
         System.out.println(goods.getGoodsName());
     }
 
