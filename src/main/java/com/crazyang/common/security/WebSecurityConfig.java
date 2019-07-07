@@ -1,3 +1,4 @@
+/*
 package com.crazyang.common.security;
 
 import org.springframework.context.annotation.Configuration;
@@ -19,3 +20,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 }
+*/

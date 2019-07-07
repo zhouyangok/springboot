@@ -18,7 +18,7 @@ public interface LearnService  extends IService<LearnResource>{
 
      void deleteBatch(Long[] ids);
 
-    void add(LearnResource resource);
+    void addResource(LearnResource resource);
 
     void deleteById(int id);
 

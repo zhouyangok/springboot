@@ -1,5 +1,7 @@
 package com.crazyang.common.utils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -43,6 +45,7 @@ public class ThreadDemo {
     private static final Object lock = new Object();
 
     public static void main(String[] args) {
+        List list = new ArrayList();
         long startTime = System.nanoTime();
         for (int i = 0; i < CONST; i++) {
             nums[i] = Long.valueOf(i);

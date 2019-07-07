@@ -2,7 +2,6 @@ package com.crazyang.entity;
 
 import javax.persistence.*;
 
-@Table(name = "learn_resource")
 @Entity
 public class LearnResource {
     /**

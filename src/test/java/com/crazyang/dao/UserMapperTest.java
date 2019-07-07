@@ -21,16 +21,23 @@ import java.util.Map;
 public class UserMapperTest {
     @Autowired
     private UserMapper userMapper;
+
     @Test
     public void queryUserList() throws Exception {
         Map map = new HashMap<>();
         List<User> lists = userMapper.queryUserList(map);
 
-        for(User user:lists){
+        for (User user : lists) {
             System.out.println(user.getName());
         }
 
         System.out.println(lists.size());
     }
+
+    @Test
+    public void insertUser() {
+
+    }
+
 
 }

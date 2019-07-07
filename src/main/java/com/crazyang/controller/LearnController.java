@@ -54,7 +54,7 @@ public class LearnController  extends AbstractController{
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     @ResponseBody
     public AjaxObject addLearn(@RequestBody LearnResource learn){
-        learnService.add(learn);
+        learnService.addResource(learn);
         return AjaxObject.ok();
     }
 

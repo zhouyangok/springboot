@@ -27,8 +27,8 @@ public class LearnServiceImpl extends BaseService<LearnResource> implements Lear
     }
 
     @Override
-    public void add(LearnResource resource) {
-        learnResourceMapper.add(resource);
+    public void addResource(LearnResource resource) {
+        learnResourceMapper.insertResource(resource);
     }
 
     @Override
